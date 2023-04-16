@@ -14,17 +14,22 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Pair;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class MyJavaFX extends Application {
 
     // 定义用户名和密码
-    private static final String USERNAME = "";
-    private static final String PASSWORD = "";
+//    private static final String USERNAME = "";
+    private static ArrayList<String> userName = new ArrayList<>(Arrays.asList("", "111", "222"));
+    private  static  ArrayList<String> passWord = new ArrayList<>(Arrays.asList("", "111", "333"));
+//    private static final String PASSWORD = "";
 
     @Override
     public void start(Stage primaryStage) throws Exception {
 
         // 创建登录表单
-        Label headerLabel = new Label("登录");
+        Label headerLabel = new Label("Login");
         headerLabel.setFont(new Font("Arial", 20));
         GridPane gridPane = new GridPane();
         gridPane.setAlignment(Pos.CENTER);
@@ -42,12 +47,12 @@ public class MyJavaFX extends Application {
         HBox buttonBox = new HBox(10);
         buttonBox.setAlignment(Pos.BOTTOM_RIGHT);
         buttonBox.getChildren().addAll(loginButton, forgotPasswordButton);
-
         gridPane.add(usernameLabel, 0, 0);
         gridPane.add(usernameField, 1, 0);
         gridPane.add(passwordLabel, 0, 1);
         gridPane.add(passwordField, 1, 1);
         gridPane.add(buttonBox, 1, 2);
+
         Label statusLabel = new Label();
 
         BorderPane root1 = new BorderPane();
@@ -59,25 +64,34 @@ public class MyJavaFX extends Application {
         loginButton.setOnAction(event -> {
             String username = usernameField.getText();
             String password = passwordField.getText();
-            if (username.equals(USERNAME) && password.equals(PASSWORD)) {
-                // 登录成功，显示主界面
+            for(int i = 0; i < userName.size(); i++) {
+                if (username.equals(userName.get(i)) && password.equals(passWord.get(i))) {
+                    // 登录成功，显示主界面
+                    primaryStage.setScene(scene1);
+                } else {
+                    // 显示错误消息
 
-//                primaryStage.setScene(new Scene(root1, 800, 600));
-                primaryStage.setScene(scene1);
-            } else {
-                // 显示错误消息
-                statusLabel.setText("用户名或密码错误");
+                    statusLabel.setText("Username or password is incorrect.");
+                }
             }
         });
 
         // 找回密码按钮事件处理程序
         forgotPasswordButton.setOnAction(event -> {
+
+            // 创建一个确认按钮
+            Button confirmButton = new Button("Confirm");
+            confirmButton.setOnAction(e -> {
+                // 关闭该窗口
+                Stage stage = (Stage) confirmButton.getScene().getWindow();
+                stage.close();
+            });
             // 显示找回密码窗口
-            Label messageLabel = new Label("请联系管理员找回密码。");
+            Label messageLabel = new Label("Please contact your administrator.");
             messageLabel.setAlignment(Pos.CENTER);
-            VBox vbox = new VBox(10);
+            VBox vbox = new VBox(20);
             vbox.setAlignment(Pos.CENTER);
-            vbox.getChildren().addAll(messageLabel);
+            vbox.getChildren().addAll(messageLabel, confirmButton);
             Scene scene = new Scene(vbox, 300, 200);
             Stage stage = new Stage();
             stage.setScene(scene);
@@ -177,8 +191,7 @@ public class MyJavaFX extends Application {
         root.setRight(rightBox);
 
         // 左侧按钮事件处理程序
-        for(int i = 0; i < buttons.length; i++){
-            Button button = buttons[i];
+        for (Button button : buttons) {
             button.setOnAction(event -> {
                 String buttonText = button.getText();
                 statusLabel.setText("你点击了 " + buttonText);
@@ -187,7 +200,7 @@ public class MyJavaFX extends Application {
 
         // 右侧按钮事件处理程序
         attackButton.setOnAction(event -> {
-            statusLabel.setText("攻击！");
+            statusLabel.setText("Attack！");
         });
 
         // 创建一个网格布局
@@ -252,11 +265,11 @@ public class MyJavaFX extends Application {
 
 
         moveButton.setOnAction(event -> {
-            statusLabel.setText("移动！");
+            statusLabel.setText("Move！");
         });
 
         upgradeButton.setOnAction(event -> {
-            statusLabel.setText("升级！");
+            statusLabel.setText("Upgrade!");
         });
 
 
