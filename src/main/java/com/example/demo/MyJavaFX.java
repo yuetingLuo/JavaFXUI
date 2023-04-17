@@ -18,23 +18,18 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Pair;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Optional;
 
 public class MyJavaFX extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent gridPane = FXMLLoader.load(getClass().getResource("startGridPine.fxml"));
-        primaryStage.setScene(new Scene(gridPane, 300, 275));
+        primaryStage.setScene(new Scene(gridPane, 400, 600));
         primaryStage.setTitle("Risk Game");
-//        primaryStage.getIcons().add(new Image("file:src/main/resources/logo.png"));
-        File file = new File("src/main/resources/logo.png");
-        Image image = new Image(file.toURI().toString());
-        primaryStage.getIcons().add(image);
+        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("logo.png")));
         primaryStage.show();
 
         Label statusLabel = new Label();
@@ -88,7 +83,7 @@ public class MyJavaFX extends Application {
             }
         }
         if (!valid) {
-            // 登录失败，提示错误信息
+            // Login failed, show error message
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText("Error!");
             alert.setContentText("username or password is wrong!");
@@ -98,14 +93,14 @@ public class MyJavaFX extends Application {
 
     @FXML
     public void handleForgotPassword() {
-        // 创建一个确认按钮
+        // Create a new window
         Button confirmButton = new Button("Confirm");
         confirmButton.setOnAction(e -> {
-            // 关闭该窗口
+            // Close the window
             Stage stage = (Stage) confirmButton.getScene().getWindow();
             stage.close();
         });
-        // 显示找回密码窗口
+        // Show the window
         Label messageLabel = new Label("Please contact your administrator.");
         messageLabel.setAlignment(Pos.CENTER);
         VBox vbox = new VBox(20);
@@ -136,7 +131,7 @@ public class MyJavaFX extends Application {
         Node source = (Node) event.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         Parent root1 = FXMLLoader.load(getClass().getResource("startGridPine.fxml"));
-        Scene scene = new Scene(root1, 300, 275);
+        Scene scene = new Scene(root1, 400, 600);
 
         Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
         stage.setScene(scene);
@@ -265,4 +260,5 @@ public class MyJavaFX extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
 }

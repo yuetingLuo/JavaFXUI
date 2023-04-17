@@ -3,7 +3,6 @@
     -fx-font-family: "Cambria";
     -fx-text-fill: #1E90FF;
 }
-
 .button-style {
     -fx-background-color: #0E90FF;
     -fx-text-fill: white;
@@ -17,4 +16,11 @@
 .button-style:pressed {
     -fx-background-color: #3366FF;
     -fx-text-fill: black;
+}
+.start-bg {
+    -fx-background-image: url('start.png');
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+    -fx-background-repeat: stretch;
+
 }

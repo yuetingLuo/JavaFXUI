@@ -21,17 +21,17 @@
             <children>
                 <HBox alignment="CENTER" spacing="0.0">
                     <children>
-                        <Button styleClass="button-color-1" prefWidth="100" prefHeight="50" text="Map 1" />
-                        <Button styleClass="button-color-1" prefWidth="100" prefHeight="50" text="Map 2" />
-                        <Button styleClass="button-color-1" prefWidth="100" prefHeight="50" text="Map 3" />
+                        <Button styleClass="button-color-1" prefWidth="100" prefHeight="50"  onAction="#handleButtonClick" text="Map 1" />
+                        <Button styleClass="button-color-1" prefWidth="100" prefHeight="50"  onAction="#handleButtonClick" text="Map 2" />
+                        <Button styleClass="button-color-1" prefWidth="100" prefHeight="50"  onAction="#handleButtonClick" text="Map 3" />
                     </children>
                 </HBox>
                 <HBox alignment="CENTER" spacing="0.0">
                     <children>
-                        <Button styleClass="button-color-2" prefWidth="75" prefHeight="50" text="Map 7" />
-                        <Button styleClass="button-color-2" prefWidth="75" prefHeight="50" text="Map 8" />
-                        <Button styleClass="button-color-2" prefWidth="75" prefHeight="50" text="Map 9" />
-                        <Button styleClass="button-color-3" prefWidth="75" prefHeight="50" text="Map 10" />
+                        <Button styleClass="button-color-2" prefWidth="75"  onAction="#handleButtonClick" prefHeight="50" text="Map 7" />
+                        <Button styleClass="button-color-2" prefWidth="75"  onAction="#handleButtonClick" prefHeight="50" text="Map 8" />
+                        <Button styleClass="button-color-2" prefWidth="75" onAction="#handleButtonClick" prefHeight="50" text="Map 9" />
+                        <Button styleClass="button-color-3" prefWidth="75" onAction="#handleButtonClick" prefHeight="50" text="Map 10" />
                     </children>
                 </HBox>
                 <HBox alignment="CENTER" spacing="0.0">

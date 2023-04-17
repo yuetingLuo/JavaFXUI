@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo.MyJavaFX" stylesheets="@startGridPine.css">
+<GridPane alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo.MyJavaFX" styleClass="start-bg" stylesheets="@startGridPine.css">
 
     <Label text="Username:" GridPane.rowIndex="1" fx:id="usernameLabel" styleClass="label-style"/>
     <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" fx:id="usernameField" />
