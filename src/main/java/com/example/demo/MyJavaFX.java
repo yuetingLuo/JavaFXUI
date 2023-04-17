@@ -20,6 +20,7 @@ import javafx.util.Pair;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Optional;
 
 public class MyJavaFX extends Application {
 
@@ -188,7 +189,14 @@ public class MyJavaFX extends Application {
             boolean disable = newValue.trim().isEmpty() || destTextField.getText().isEmpty() || originTextField.getText().isEmpty();
             okButton.setDisable(disable);
         });
+        dialog.setResultConverter(dialogButton -> {
+            if (dialogButton == DoneButtonType) {
+                return new Pair<>(originTextField.getText(), destTextField.getText());
+            }
+            return null;
+        });
 
+        // 显示对话框并等待用户响应
         dialog.showAndWait().ifPresent(result -> {
             System.out.println(": " + result.getKey() + ", : " + result.getValue());
         });
