@@ -31,9 +31,9 @@ public class LoginController {
         if (!valid) {
             // 登录失败，提示错误信息
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("错误");
-            alert.setHeaderText("登录失败");
-            alert.setContentText("用户名或密码错误！");
+            alert.setTitle("Error Dialog");
+            alert.setHeaderText("Error!");
+            alert.setContentText("username or password is wrong!");
             alert.showAndWait();
         }
     }
