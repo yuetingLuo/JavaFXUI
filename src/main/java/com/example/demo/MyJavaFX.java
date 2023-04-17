@@ -61,21 +61,24 @@ public class MyJavaFX extends Application {
         Scene scene1 = new Scene(root1, 800, 600);
 
         // 登录按钮事件处理程序
+        
         loginButton.setOnAction(event -> {
             String username = usernameField.getText();
             String password = passwordField.getText();
+            boolean valid = false;
             for(int i = 0; i < userName.size(); i++) {
                 if (username.equals(userName.get(i)) && password.equals(passWord.get(i))) {
                     // 登录成功，显示主界面
                     primaryStage.setScene(scene1);
-                } else {
-                    // 显示错误消息
-
-                    statusLabel.setText("Username or password is incorrect.");
+                    valid = true;
+                    break;
                 }
             }
+            if (!valid) {
+                // 显示错误消息
+                statusLabel.setText("Username or password is incorrect.");
+            }
         });
-
         // 找回密码按钮事件处理程序
         forgotPasswordButton.setOnAction(event -> {
 
@@ -181,10 +184,11 @@ public class MyJavaFX extends Application {
         HBox lastRowBox = new HBox(20);
         lastRowBox.setPadding(new Insets(10,10,10,10));
         Button doneButton = new Button("Done");
-
+        Button logoutButton = new Button("Logout");
         lastRowBox.setAlignment(Pos.CENTER);
         lastRowBox.getChildren().add(doneButton);
         lastRowBox.getChildren().add(switchButton);
+        lastRowBox.getChildren().add(logoutButton);
         root.setBottom(lastRowBox);
         root.setLeft(leftBox);
         root.setCenter(statusLabel);
@@ -194,7 +198,7 @@ public class MyJavaFX extends Application {
         for (Button button : buttons) {
             button.setOnAction(event -> {
                 String buttonText = button.getText();
-                statusLabel.setText("你点击了 " + buttonText);
+                statusLabel.setText("You have clicked on" + buttonText);
             });
         }
 
@@ -271,10 +275,6 @@ public class MyJavaFX extends Application {
         upgradeButton.setOnAction(event -> {
             statusLabel.setText("Upgrade!");
         });
-
-
-
-
     }
 
     public static void main(String[] args) {
