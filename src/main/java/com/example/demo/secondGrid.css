@@ -1,0 +1,31 @@
+.button-color-1 {
+    -fx-background-color: #f2e6ce;
+    -fx-border-color: #3D3D3D;
+    -fx-border-radius: 0;
+    -fx-border-width: 1;
+}
+.button-color-2 {
+    -fx-background-color: #8ba583;
+    -fx-border-color: #3D3D3D;
+    -fx-border-radius: 0;
+    -fx-border-width: 1;
+}
+.button-color-3 {
+    -fx-background-color: #74759b;
+    -fx-border-color: #3D3D3D;
+    -fx-border-radius: 0;
+    -fx-border-width: 1;
+}
+.button-color-4 {
+    -fx-background-color: #A6A6A8;
+    -fx-border-color: #3D3D3D;
+    -fx-border-radius: 0;
+    -fx-border-width: 1;
+}
+.pane-bg {
+    -fx-background-image: url('bg.jpg');
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+    -fx-background-repeat: stretch;
+
+}

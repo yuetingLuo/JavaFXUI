@@ -1,22 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.geometry.Insets?>
-<?import javafx.geometry.Pos?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<GridPane alignment="center" hgap="10" vgap="10"  xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo.MyJavaFX">
+<GridPane alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo.MyJavaFX" stylesheets="@startGridPine.css">
 
-    <Label text="Username:" GridPane.rowIndex="1" />
+    <Label text="Username:" GridPane.rowIndex="1" fx:id="usernameLabel" styleClass="label-style"/>
     <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" fx:id="usernameField" />
-    <Label text="Password:" GridPane.rowIndex="2" />
+    <Label text="Password:" GridPane.rowIndex="2" fx:id="passwordLabel" styleClass="label-style"/>
     <PasswordField GridPane.columnIndex="1" GridPane.rowIndex="2" fx:id="passwordField" />
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="3" >
-        <Button text="Login" onAction="#handleLogin" />
-        <Button text="Find password" onAction="#handleForgotPassword"/>
+        <Button text="Login" onAction="#handleLogin" styleClass="button-style"/>
+        <Button text="Find password" onAction="#handleForgotPassword" styleClass="button-style"/>
     </HBox>
 </GridPane>

@@ -2,12 +2,12 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo.MyJavaFX">
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo.MyJavaFX" stylesheets="@secondGrid.css" styleClass="pane-bg" >
     <top>
         <HBox alignment="CENTER" xmlns:fx="http://javafx.com/fxml" spacing="10" >
             <children>
-                <Label text="Game id: "/>
-                <Label fx:id="GameId" text="" />
+                <Label text="Game id: " />
+                <Label fx:id="GameId" text=""   />
                 <Label text="Food: "/>
                 <Label fx:id="food" text="" />
                 <Label text="Player Rank: "/>
@@ -21,24 +21,25 @@
             <children>
                 <HBox alignment="CENTER" spacing="0.0">
                     <children>
-                        <Button fx:id="button1" text="Map 1" prefWidth="100.0" onAction="#handleButtonClick"/>
-                        <Button fx:id="button2" text="Map 2" prefWidth="100.0" onAction="#handleButtonClick"/>
-                        <Button fx:id="button3" text="Map 3" prefWidth="100.0" onAction="#handleButtonClick"/>
+                        <Button styleClass="button-color-1" prefWidth="100" prefHeight="50" text="Map 1" />
+                        <Button styleClass="button-color-1" prefWidth="100" prefHeight="50" text="Map 2" />
+                        <Button styleClass="button-color-1" prefWidth="100" prefHeight="50" text="Map 3" />
                     </children>
                 </HBox>
                 <HBox alignment="CENTER" spacing="0.0">
                     <children>
-                        <Button fx:id="button4" text="Map 4" prefWidth="100.0" onAction="#handleButtonClick"/>
-                        <Button fx:id="button5" text="Map 5" prefWidth="100.0" onAction="#handleButtonClick"/>
-                        <Button fx:id="button6" text="Map 6" prefWidth="100.0" onAction="#handleButtonClick"/>
+                        <Button styleClass="button-color-2" prefWidth="75" prefHeight="50" text="Map 7" />
+                        <Button styleClass="button-color-2" prefWidth="75" prefHeight="50" text="Map 8" />
+                        <Button styleClass="button-color-2" prefWidth="75" prefHeight="50" text="Map 9" />
+                        <Button styleClass="button-color-3" prefWidth="75" prefHeight="50" text="Map 10" />
                     </children>
                 </HBox>
                 <HBox alignment="CENTER" spacing="0.0">
                     <children>
-                        <Button fx:id="button7" text="Map 7" prefWidth="75.0" onAction="#handleButtonClick"/>
-                        <Button fx:id="button8" text="Map 8" prefWidth="75.0" onAction="#handleButtonClick"/>
-                        <Button fx:id="button9" text="Map 9" prefWidth="75.0" onAction="#handleButtonClick"/>
-                        <Button fx:id="button10" text="Map 10" prefWidth="75.0" onAction="#handleButtonClick"/>
+                        <Button fx:id="button7" text="Map 7" prefWidth="75.0" onAction="#handleButtonClick" styleClass="map-button2"/>
+                        <Button fx:id="button8" text="Map 8" prefWidth="75.0" onAction="#handleButtonClick" styleClass="map-button2"/>
+                        <Button fx:id="button9" text="Map 9" prefWidth="75.0" onAction="#handleButtonClick" styleClass="map-button2"/>
+                        <Button fx:id="button10" text="Map 10" prefWidth="75.0" onAction="#handleButtonClick" styleClass="map-button2"/>
                     </children>
                 </HBox>
             </children>
@@ -51,8 +52,8 @@
         <VBox alignment="CENTER"  xmlns:fx="http://javafx.com/fxml/1" spacing="10.0">
             <children>
                 <Button fx:id="attackButton" text="Attack" onAction="#handleAttackButton"/>
-                <Button fx:id="moveButton" text="Move" />
-                <Button fx:id="upgradeButton" text="Upgrade" />
+                <Button fx:id="moveButton" text="Move" onAction="#handleMoveButton"/>
+                <Button fx:id="upgradeButton" text="Upgrade" onAction="#handleUpgradeButton"/>
             </children>
         </VBox>
     </right>

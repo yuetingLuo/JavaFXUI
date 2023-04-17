@@ -10,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -17,6 +18,7 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Pair;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,6 +30,11 @@ public class MyJavaFX extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent gridPane = FXMLLoader.load(getClass().getResource("startGridPine.fxml"));
         primaryStage.setScene(new Scene(gridPane, 300, 275));
+        primaryStage.setTitle("Risk Game");
+//        primaryStage.getIcons().add(new Image("file:src/main/resources/logo.png"));
+        File file = new File("src/main/resources/logo.png");
+        Image image = new Image(file.toURI().toString());
+        primaryStage.getIcons().add(image);
         primaryStage.show();
 
         Label statusLabel = new Label();
@@ -35,14 +42,9 @@ public class MyJavaFX extends Application {
         BorderPane root2 = new BorderPane();
 
         Scene scene1 = new Scene(root1, 800, 600);
-        //login ui
 
         Button switchButton1 = new Button("Switch to Game 2");
         Button switchButton2 = new Button("Switch to Game 1");
-//
-//        set2Pane(switchButton1, root1, 1);
-//        set2Pane(switchButton2, root2, 2);
-        // Create the Switch button
 
         Scene scene2 = new Scene(root2, 800, 600);
         switchButton1.setOnAction(event -> {
@@ -202,6 +204,64 @@ public class MyJavaFX extends Application {
         });
     }
 
+
+    @FXML
+    private TextField originTextFieldU;
+
+    @FXML
+    private TextField destTextFieldU;
+
+    @FXML
+    private TextField unitTextFieldU;
+
+    @FXML
+    private GridPane attackGridPaneU;
+
+    @FXML
+    private void handleMoveButton(ActionEvent event) throws IOException {
+        // 创建一个移动对话框
+        Dialog<Pair<String, String>> dialog = new Dialog<>();
+        dialog.setTitle("Move");
+        dialog.setHeaderText("Please enter origin/destination/units");
+        //add button
+        ButtonType DoneButtonType = new ButtonType("Move", ButtonBar.ButtonData.OK_DONE);
+        ButtonType CancelButtonType = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
+        dialog.getDialogPane().getButtonTypes().addAll(DoneButtonType, CancelButtonType);
+        // 从FXMLLoader实例中获取attackGridPane的引用
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("move.fxml"));
+        attackGridPaneU = loader.load();
+        dialog.getDialogPane().setContent(attackGridPaneU);
+        originTextFieldU = (TextField) attackGridPaneU.lookup("#originTextFieldM");
+        destTextFieldU = (TextField) attackGridPaneU.lookup("#destTextFieldM");
+        unitTextFieldU = (TextField) attackGridPaneU.lookup("#unitTextFieldM");
+        // 禁用确定按钮，除非文本框中有输入
+        Node okButton = dialog.getDialogPane().lookupButton(DoneButtonType);
+        okButton.setDisable(true);
+        // 当文本框中有输入时，启用确定按钮
+        originTextFieldU.textProperty().addListener((observable, oldValue, newValue) -> {
+            boolean disable = newValue.trim().isEmpty() || destTextFieldU.getText().isEmpty() || unitTextFieldU.getText().isEmpty();
+            okButton.setDisable(disable);
+        });
+        destTextFieldU.textProperty().addListener((observable, oldValue, newValue) -> {
+            boolean disable = newValue.trim().isEmpty() || originTextFieldU.getText().isEmpty() || unitTextFieldU.getText().isEmpty();
+            okButton.setDisable(disable);
+        });
+        unitTextFieldU.textProperty().addListener((observable, oldValue, newValue) -> {
+            boolean disable = newValue.trim().isEmpty() || destTextFieldU.getText().isEmpty() || originTextFieldU.getText().isEmpty();
+            okButton.setDisable(disable);
+        });
+        dialog.setResultConverter(dialogButton -> {
+            if (dialogButton == DoneButtonType) {
+                return new Pair<>(originTextFieldU.getText(), destTextFieldU.getText());
+            }
+            return null;
+        });
+
+        // 显示对话框并等待用户响应
+        dialog.showAndWait().ifPresent(result -> {
+            System.out.println(": " + result.getKey() + ", : " + result.getValue());
+        });
+    }
     public static void main(String[] args) {
         launch(args);
     }
