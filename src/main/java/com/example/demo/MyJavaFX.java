@@ -21,6 +21,8 @@ public class MyJavaFX extends Application {
     private static final String USERNAME = "";
     private static final String PASSWORD = "";
 
+//    private final WindowManager windowManager = new WindowManager();
+
     @Override
     public void start(Stage primaryStage) throws Exception {
 
@@ -111,7 +113,9 @@ public class MyJavaFX extends Application {
             primaryStage.setScene(scene1);
 
         });
-
+        //Attach the icon to the stage/window
+        primaryStage.getIcons().add(new Image("logo.png"));
+//        primaryStage.getIcons().add(new Image(JavaFXIconExample.class.getResourceAsStream("/logo.png")));
         primaryStage.show();
 //        primaryStage.hide();
 
