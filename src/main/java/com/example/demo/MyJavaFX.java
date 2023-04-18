@@ -257,6 +257,64 @@ public class MyJavaFX extends Application {
             System.out.println(": " + result.getKey() + ", : " + result.getValue());
         });
     }
+
+    @FXML
+//    private TextField originTextFieldP;
+//
+//    @FXML
+//    private TextField destTextFieldP;
+//
+//    @FXML
+//    private TextField unitTextFieldP;
+//
+//    @FXML
+//    private GridPane attackGridPaneP;
+//
+//    @FXML
+//    private void handleUpgradeButton(ActionEvent event) throws IOException {
+//        // 创建一个移动对话框
+//        Dialog<Pair<String, String>> dialog = new Dialog<>();
+//        dialog.setTitle("Move");
+//        dialog.setHeaderText("Please enter origin/destination/units");
+//        //add button
+//        ButtonType DoneButtonType = new ButtonType("Move", ButtonBar.ButtonData.OK_DONE);
+//        ButtonType CancelButtonType = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
+//        dialog.getDialogPane().getButtonTypes().addAll(DoneButtonType, CancelButtonType);
+//        // 从FXMLLoader实例中获取attackGridPane的引用
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("move.fxml"));
+//        attackGridPaneU = loader.load();
+//        dialog.getDialogPane().setContent(attackGridPaneU);
+//        originTextFieldU = (TextField) attackGridPaneU.lookup("#originTextFieldM");
+//        destTextFieldU = (TextField) attackGridPaneU.lookup("#destTextFieldM");
+//        unitTextFieldU = (TextField) attackGridPaneU.lookup("#unitTextFieldM");
+//        // 禁用确定按钮，除非文本框中有输入
+//        Node okButton = dialog.getDialogPane().lookupButton(DoneButtonType);
+//        okButton.setDisable(true);
+//        // 当文本框中有输入时，启用确定按钮
+//        originTextFieldU.textProperty().addListener((observable, oldValue, newValue) -> {
+//            boolean disable = newValue.trim().isEmpty() || destTextFieldU.getText().isEmpty() || unitTextFieldU.getText().isEmpty();
+//            okButton.setDisable(disable);
+//        });
+//        destTextFieldU.textProperty().addListener((observable, oldValue, newValue) -> {
+//            boolean disable = newValue.trim().isEmpty() || originTextFieldU.getText().isEmpty() || unitTextFieldU.getText().isEmpty();
+//            okButton.setDisable(disable);
+//        });
+//        unitTextFieldU.textProperty().addListener((observable, oldValue, newValue) -> {
+//            boolean disable = newValue.trim().isEmpty() || destTextFieldU.getText().isEmpty() || originTextFieldU.getText().isEmpty();
+//            okButton.setDisable(disable);
+//        });
+//        dialog.setResultConverter(dialogButton -> {
+//            if (dialogButton == DoneButtonType) {
+//                return new Pair<>(originTextFieldU.getText(), destTextFieldU.getText());
+//            }
+//            return null;
+//        });
+//
+//        // 显示对话框并等待用户响应
+//        dialog.showAndWait().ifPresent(result -> {
+//            System.out.println(": " + result.getKey() + ", : " + result.getValue());
+//        });
+//    }
     public static void main(String[] args) {
         launch(args);
     }
