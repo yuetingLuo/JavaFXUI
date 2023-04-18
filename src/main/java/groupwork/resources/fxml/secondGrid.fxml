@@ -2,17 +2,17 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo.MyJavaFX" stylesheets="@secondGrid.css" styleClass="pane-bg" >
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="groupwork.MyJavaFX" stylesheets="@../css/secondGrid.css" styleClass="pane-bg" >
     <top>
         <HBox alignment="CENTER" xmlns:fx="http://javafx.com/fxml" spacing="10" >
             <children>
                 <Label text="Game id: " />
-                <Label fx:id="GameId" text=""   />
+                <Label fx:id="GameId" text=" "   />
                 <Label text="Food: "/>
-                <Label fx:id="food" text="" />
+                <Label fx:id="food" text=" " />
                 <Label text="Player Rank: "/>
-                <Label fx:id="PlayerRank" text="" />
-                <Button fx:id="upgrade" text="↑" onAction="#handleUpgradeButton"/>
+                <Label fx:id="PlayerRank" text=" " />
+                <Button fx:id="upgrade" text="↑"  onAction="#handleUpgradeButton"/>
             </children>
         </HBox>
     </top>

@@ -18,7 +18,7 @@
     -fx-text-fill: black;
 }
 .start-bg {
-    -fx-background-image: url('start.png');
+    -fx-background-image: url('../image/start.png');
     -fx-background-size: cover;
     -fx-background-position: center center;
     -fx-background-repeat: stretch;

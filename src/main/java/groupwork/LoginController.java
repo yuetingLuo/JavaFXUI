@@ -1,4 +1,4 @@
-package com.example.demo;
+package groupwork;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

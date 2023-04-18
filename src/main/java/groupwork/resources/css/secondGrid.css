@@ -23,7 +23,7 @@
     -fx-border-width: 1;
 }
 .pane-bg {
-    -fx-background-image: url('bg.jpg');
+    -fx-background-image: url('../image/bg.jpg');
     -fx-background-size: cover;
     -fx-background-position: center center;
     -fx-background-repeat: stretch;

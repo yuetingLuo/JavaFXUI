@@ -1,4 +1,4 @@
-package com.example.demo;
+package groupwork;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -26,10 +26,10 @@ public class MyJavaFX extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent gridPane = FXMLLoader.load(getClass().getResource("startGridPine.fxml"));
+        Parent gridPane = FXMLLoader.load(getClass().getResource("resources/fxml/startGridPine.fxml"));
         primaryStage.setScene(new Scene(gridPane, 400, 600));
         primaryStage.setTitle("Risk Game");
-        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("logo.png")));
+        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("resources/image/logo.png")));
         primaryStage.show();
 
         Label statusLabel = new Label();
@@ -67,7 +67,7 @@ public class MyJavaFX extends Application {
         for(int i = 0; i < userName.size(); i++) {
             if (username.equals(userName.get(i)) && password.equals(passWord.get(i))) {
                 // 登录成功，显示主界面
-                Parent root1 = FXMLLoader.load(getClass().getResource("secondGrid.fxml"));
+                Parent root1 = FXMLLoader.load(getClass().getResource("resources/fxml/secondGrid.fxml"));
                 Scene scene = new Scene(root1, 800, 600);
                 Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
 
@@ -130,7 +130,7 @@ public class MyJavaFX extends Application {
     private void handleLogoutButton(ActionEvent event) throws IOException {
         Node source = (Node) event.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
-        Parent root1 = FXMLLoader.load(getClass().getResource("startGridPine.fxml"));
+        Parent root1 = FXMLLoader.load(getClass().getResource("resources/fxml/startGridPine.fxml"));
         Scene scene = new Scene(root1, 400, 600);
 
         Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
