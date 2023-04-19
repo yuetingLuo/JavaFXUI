@@ -3,6 +3,7 @@ package groupwork;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -14,6 +15,10 @@ import javafx.stage.Stage;
 import javafx.util.Pair;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.ResourceBundle;
 
 public class GameController {
     @FXML
@@ -47,17 +52,9 @@ public class GameController {
     }
 
     @FXML
-    private TextField originTextField;
-
-    @FXML
-    private TextField destTextField;
-
-    @FXML
-    private TextField unitTextField;
-
+    private TextField originTextField,destTextField,unitTextField;
     @FXML
     private GridPane attackGridPane;
-
     @FXML
     private void handleAttackButton(ActionEvent event) throws IOException {
         // 创建一个攻击对话框
@@ -69,7 +66,7 @@ public class GameController {
         ButtonType CancelButtonType = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
         dialog.getDialogPane().getButtonTypes().addAll(DoneButtonType, CancelButtonType);
         // 从FXMLLoader实例中获取attackGridPane的引用
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("attack.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("resources/fxml/attack.fxml"));
         attackGridPane = loader.load();
         dialog.getDialogPane().setContent(attackGridPane);
         originTextField = (TextField) attackGridPane.lookup("#originTextField");
@@ -100,20 +97,12 @@ public class GameController {
 
         // 显示对话框并等待用户响应
         dialog.showAndWait().ifPresent(result -> {
-            System.out.println(": " + result.getKey() + ", : " + result.getValue());
+            System.out.println("Attack: " + result.getKey() + ", : " + result.getValue());
         });
     }
 
-
     @FXML
-    private TextField originTextFieldU;
-
-    @FXML
-    private TextField destTextFieldU;
-
-    @FXML
-    private TextField unitTextFieldU;
-
+    private TextField originTextFieldU, destTextFieldU, unitTextFieldU;
     @FXML
     private GridPane attackGridPaneU;
 
@@ -128,7 +117,7 @@ public class GameController {
         ButtonType CancelButtonType = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
         dialog.getDialogPane().getButtonTypes().addAll(DoneButtonType, CancelButtonType);
         // 从FXMLLoader实例中获取attackGridPane的引用
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("move.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("resources/fxml/move.fxml"));
         attackGridPaneU = loader.load();
         dialog.getDialogPane().setContent(attackGridPaneU);
         originTextFieldU = (TextField) attackGridPaneU.lookup("#originTextFieldM");
@@ -159,11 +148,49 @@ public class GameController {
 
         // 显示对话框并等待用户响应
         dialog.showAndWait().ifPresent(result -> {
-            System.out.println(": " + result.getKey() + ", : " + result.getValue());
+            System.out.println("Move: " + result.getKey() + ", : " + result.getValue());
         });
+
+
     }
+    static Map<String, Scene> scenes = new HashMap<>();
+    static int num = 0;
 
-    
+    @FXML
+    public void handleSwitchButton(ActionEvent event) throws IOException {
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        if(num == 0) {
+            //get current scene into scenes
+            Scene scene = stage.getScene();
+            scenes.put("gameGrid1", scene);
+            num = 1;
+        }
+        if(num == 1) {
+            if(scenes.containsKey("gameGrid2")) {
+                stage.setScene(scenes.get("gameGrid2"));
+                stage.show();
+                System.out.println("gameGrid211");
+            }
+            else {
+                Parent root1 = FXMLLoader.load(getClass().getResource("resources/fxml/gameGrid.fxml"));
+                Scene scene = new Scene(root1, 800, 600);
+                stage.setScene(scene);
+                stage.show();
+                System.out.println("gameGrid212");
 
+                scenes.put("gameGrid2", scene);
 
+            }
+            num = 2;
+        }
+        else {
+            if(scenes.containsKey("gameGrid1")) {
+                stage.setScene(scenes.get("gameGrid1"));
+                stage.show();
+                System.out.println("gameGrid111");
+            }
+            num = 1;
+        }
+    }
 }

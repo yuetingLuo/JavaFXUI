@@ -27,25 +27,6 @@ public class MyJavaFX extends Application {
         primaryStage.setTitle("Risk Game");
         primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("resources/image/logo.png")));
         primaryStage.show();
-
-        Label statusLabel = new Label();
-        BorderPane root1 = new BorderPane();
-        BorderPane root2 = new BorderPane();
-
-        Scene scene1 = new Scene(root1, 800, 600);
-
-        Button switchButton1 = new Button("Switch to Game 2");
-        Button switchButton2 = new Button("Switch to Game 1");
-
-        Scene scene2 = new Scene(root2, 800, 600);
-        switchButton1.setOnAction(event -> {
-            primaryStage.setScene(scene2);
-        });
-
-        switchButton2.setOnAction(event -> {
-            primaryStage.setScene(scene1);
-
-        });
     }
 
     public static void main(String[] args) {
