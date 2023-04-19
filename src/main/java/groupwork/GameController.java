@@ -174,6 +174,8 @@ public class GameController {
             }
             else {
                 Parent root1 = FXMLLoader.load(getClass().getResource("resources/fxml/gameGrid.fxml"));
+                Label gameIdLabel = (Label) root1.lookup("#GameId");
+                gameIdLabel.setText("2");
                 Scene scene = new Scene(root1, 800, 600);
                 stage.setScene(scene);
                 stage.show();
@@ -189,6 +191,17 @@ public class GameController {
                 stage.setScene(scenes.get("gameGrid1"));
                 stage.show();
                 System.out.println("gameGrid111");
+            }
+            else {
+                Parent root1 = FXMLLoader.load(getClass().getResource("resources/fxml/gameGrid.fxml"));
+                Label gameIdLabel = (Label) root1.lookup("#GameId");
+                gameIdLabel.setText("1");
+                Scene scene = new Scene(root1, 800, 600);
+                stage.setScene(scene);
+                stage.show();
+                System.out.println("gameGrid112");
+                scenes.put("gameGrid1", scene);
+
             }
             num = 1;
         }

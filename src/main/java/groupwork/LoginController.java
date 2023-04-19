@@ -29,10 +29,9 @@ public class LoginController {
         for(int i = 0; i < userName.size(); i++) {
             if (username.equals(userName.get(i)) && password.equals(passWord.get(i))) {
                 // 登录成功，显示主界面
-                Parent root1 = FXMLLoader.load(getClass().getResource("resources/fxml/gameGrid.fxml"));
+                Parent root1 = FXMLLoader.load(getClass().getResource("resources/fxml/choosegame.fxml"));
                 Scene scene = new Scene(root1, 800, 600);
                 Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
-
                 Stage stage = (Stage) usernameField.getScene().getWindow();
                 stage.setScene(scene);
                 double centerX = screenBounds.getMinX() + (screenBounds.getWidth() - scene.getWidth()) / 2;
