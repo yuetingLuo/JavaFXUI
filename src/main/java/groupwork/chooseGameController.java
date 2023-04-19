@@ -25,19 +25,26 @@ public class chooseGameController {
         Parent root1 = FXMLLoader.load(getClass().getResource("resources/fxml/gameGrid.fxml"));
         Label gameIdLabel = (Label) root1.lookup("#GameId");
         //gameNumberTextField.getText()不为1或者2时继续循环，直到输入为1或者2
-        gameIdLabel.setText(gameNumberTextField.getText());
+        if (!gameNumberTextField.getText().equals("1") && !gameNumberTextField.getText().equals("2")) {
+            gameNumberTextField.setText("");
+            gameNumberTextField.setPromptText("You can only enter 1 or 2");
+            Stage stage = (Stage) gameNumberTextField.getScene().getWindow();
+            stage.show();
+        }
+        else {
+            gameIdLabel.setText(gameNumberTextField.getText());
+            Scene scene = new Scene(root1, 800, 600);
+            Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
 
+            Stage stage = (Stage) gameNumberTextField.getScene().getWindow();
+            stage.setScene(scene);
+            double centerX = screenBounds.getMinX() + (screenBounds.getWidth() - scene.getWidth()) / 2;
+            double centerY = screenBounds.getMinY() + (screenBounds.getHeight() - scene.getHeight()) / 2;
+            stage.setX(centerX);
+            stage.setY(centerY);
+            stage.show();
+        }
 
-        Scene scene = new Scene(root1, 800, 600);
-        Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
-
-        Stage stage = (Stage) gameNumberTextField.getScene().getWindow();
-        stage.setScene(scene);
-        double centerX = screenBounds.getMinX() + (screenBounds.getWidth() - scene.getWidth()) / 2;
-        double centerY = screenBounds.getMinY() + (screenBounds.getHeight() - scene.getHeight()) / 2;
-        stage.setX(centerX);
-        stage.setY(centerY);
-        stage.show();
 
     }
 }

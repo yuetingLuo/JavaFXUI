@@ -12,7 +12,7 @@
                 <Label fx:id="food" text=" " />
                 <Label text="Player Rank: "/>
                 <Label fx:id="PlayerRank" text=" " />
-                <Button fx:id="upgrade" text="↑"  onAction="#handleUpgradeButton"/>
+                <Button fx:id="upgrade" text="↑"  onAction="#handlePlayerUpgradeButton"/>
             </children>
         </HBox>
     </top>
@@ -21,24 +21,24 @@
             <children>
                 <HBox alignment="CENTER" spacing="0.0">
                     <children>
-                        <Button styleClass="button-color-1" prefWidth="100" prefHeight="50"  onAction="#handleButtonClick" text="Map 1" />
-                        <Button styleClass="button-color-1" prefWidth="100" prefHeight="50"  onAction="#handleButtonClick" text="Map 2" />
-                        <Button styleClass="button-color-1" prefWidth="100" prefHeight="50"  onAction="#handleButtonClick" text="Map 3" />
+                        <Button fx:id="button1" styleClass="button-color-1" prefWidth="100" prefHeight="50"  onAction="#handleButtonClick" text="Map 1" />
+                        <Button fx:id="button2" styleClass="button-color-1" prefWidth="100" prefHeight="50"  onAction="#handleButtonClick" text="Map 2" />
+                        <Button fx:id="button3" styleClass="button-color-1" prefWidth="100" prefHeight="50"  onAction="#handleButtonClick" text="Map 3" />
                     </children>
                 </HBox>
                 <HBox alignment="CENTER" spacing="0.0">
                     <children>
-                        <Button styleClass="button-color-1" prefWidth="100" prefHeight="50"  onAction="#handleButtonClick" text="Map 4" />
-                        <Button styleClass="button-color-1" prefWidth="100" prefHeight="50"  onAction="#handleButtonClick" text="Map 5" />
-                        <Button styleClass="button-color-1" prefWidth="100" prefHeight="50"  onAction="#handleButtonClick" text="Map 6" />
+                        <Button fx:id="button4" styleClass="button-color-1" prefWidth="100" prefHeight="50"  onAction="#handleButtonClick" text="Map 4" />
+                        <Button fx:id="button5" styleClass="button-color-1" prefWidth="100" prefHeight="50"  onAction="#handleButtonClick" text="Map 5" />
+                        <Button fx:id="button6" styleClass="button-color-1" prefWidth="100" prefHeight="50"  onAction="#handleButtonClick" text="Map 6" />
                     </children>
                 </HBox>
                 <HBox alignment="CENTER" spacing="0.0">
                     <children>
-                        <Button fx:id="button7" text="Map 7" prefWidth="75.0" onAction="#handleButtonClick" styleClass="map-button2"/>
-                        <Button fx:id="button8" text="Map 8" prefWidth="75.0" onAction="#handleButtonClick" styleClass="map-button2"/>
-                        <Button fx:id="button9" text="Map 9" prefWidth="75.0" onAction="#handleButtonClick" styleClass="map-button2"/>
-                        <Button fx:id="button10" text="Map 10" prefWidth="75.0" onAction="#handleButtonClick" styleClass="map-button2"/>
+                        <Button fx:id="button7" text="Map 7" prefWidth="75.0" onAction="#handleButtonClick" styleClass="map-button2" prefHeight="50" />
+                        <Button fx:id="button8" text="Map 8" prefWidth="75.0" onAction="#handleButtonClick" styleClass="map-button2" prefHeight="50" />
+                        <Button fx:id="button9" text="Map 9" prefWidth="75.0" onAction="#handleButtonClick" styleClass="map-button2" prefHeight="50" />
+                        <Button fx:id="button10" text="Map 10" prefWidth="75.0" onAction="#handleButtonClick" styleClass="map-button2" prefHeight="50" />
                     </children>
                 </HBox>
             </children>
@@ -60,7 +60,7 @@
         <HBox alignment="CENTER"  xmlns:fx="http://javafx.com/fxml/1" spacing="20.0">
             <children>
                 <Button fx:id="switchButton" text="Switch" onAction="#handleSwitchButton"/>
-                <Button fx:id="doneButton" text="Done" />
+                <Button fx:id="doneButton" text="Done" onAction="#handleUpgradeButton"/>
                 <Button fx:id="logoutButton" text="Logout" onAction="#handleLogoutButton"/>
             </children>
         </HBox>
